@@ -1,0 +1,2 @@
+const str1= 'https://firebasestorage.googleapis.com/v0/b/ginger-restaurant.appspot.com/o/menu%2F1fea6dd8-8326-42eb-8f7e-8917159c6521?alt=media&token=b6f0b5ec-8390-4414-906b-0a8133c0533e'
+console.log(str1==="https://firebasestorage.googleapis.com/v0/b/ginger-restaurant.appspot.com/o/menu%2F1fea6dd8-8326-42eb-8f7e-8917159c6521?alt=media&token=b6f0b5ec-8390-4414-906b-0a8133c0533e")
