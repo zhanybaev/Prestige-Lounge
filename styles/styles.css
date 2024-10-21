@@ -607,6 +607,8 @@ pre {
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    color: black !important;
+    font-weight: 500;
 }
   
 #modal input:focus {
