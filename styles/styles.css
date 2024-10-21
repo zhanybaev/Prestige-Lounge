@@ -3371,7 +3371,7 @@ body .full-width-section>.col.span_12 {
     position: absolute;
 }
 .nectar-shape-divider-wrap.no-color .nectar-shape-divider {
-    fill: #fff;
+    /* fill: #fff; */
 }
 @media only screen and (max-width:999px) {
     .nectar-shape-divider-wrap:not([data-using-percent-val=true]) .nectar-shape-divider {
