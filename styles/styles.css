@@ -11975,6 +11975,23 @@ body[data-button-style*=rounded] #to-top:hover i.fa-angle-up.top-icon, body[data
 body[data-button-style*=rounded] #to-top:active:before {
     opacity: 1;
 }
+#setting{
+    position: fixed;
+    cursor: pointer;
+    z-index: 100;
+    bottom: 10px;
+    right: 50px;
+    width: 24px;
+}
+#setting svg{
+    fill: white;
+    transition: 0.6s;
+}
+@media (hover: hover) {
+    #setting:hover svg{
+      fill: #FFC85B;
+    }
+}
 #to-top i {
     line-height: 29px;
     width: 29px;
