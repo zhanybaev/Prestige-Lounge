@@ -324,7 +324,7 @@
         </div>
         <div id="ajax-content-wrap">
             <div class="container-wrap">
-                <div class="container main-content">
+                <div class="container main-content" id="main-content">
                     <div class="row">
                         <div
                             id="about"
@@ -1196,10 +1196,40 @@
               <label for="admin-auth-password">Enter Password:</label>
               <input type="password" id="admin-auth-password">
               <button id="admin-auth-submit">Submit</button>
-              <p id="admin-auth-error" style="color:red; display:none;">Incorrect Password!</p>
+              <p id="admin-auth-error" style="color:tomato !important; display:none;">Incorrect Password!</p>
             </div>
         </div>
-        
+        <div class="admin-container" id="admin-container">
+            <h2>Add a Product</h2>
+            <form>
+                <div class="form-group">
+                    <label for="product-name">Product Name:</label>
+                    <input type="text" id="product-name" placeholder="Enter product name" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="product-price">Product Price:</label>
+                    <input type="number" id="product-price" placeholder="Enter product price" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="product-description">Product Description:</label>
+                    <textarea id="product-description" placeholder="Enter product description"></textarea>
+                </div>
+    
+                <div class="form-footer">
+                    <button id="addBtn" type="button">Add Product</button>
+                </div>
+            </form>
+            <div class="switch-container">
+                <label for="tables-availability">Tables Availability:</label>
+                <label class="switch">
+                    <input checked="true" type="checkbox" id="tables-availability">
+                    <span class="slider"></span>
+                </label>
+                <button id="save">Save</button>
+            </div>
+        </div>
         <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>

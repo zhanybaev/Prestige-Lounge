@@ -3,7 +3,7 @@ const firebaseConfig = {
 }
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-
+// ===========================Firebase Init=====================
 const menu = []
 
 async function getBarCollection() {
@@ -16,7 +16,7 @@ async function getBarCollection() {
     console.error("Error fetching documents: ", error);
   }
 }
-
+// ========================Open Booking Modal======================
 const book = document.getElementById("book")
 const modal = document.getElementById("modal")
 const closeBtn = document.querySelector('.close');
@@ -27,10 +27,11 @@ book.addEventListener('click', ()=>{
 })
 
 closeBtn.addEventListener('click', function () {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
 });
 
+// ======================Open Bar Menu===============================
 const barBtn = document.getElementById("barBtn")
 const menuList = document.getElementById("menuList")
 barBtn.addEventListener("click", async()=>{
@@ -49,3 +50,61 @@ barBtn.addEventListener("click", async()=>{
   })
 })
 
+// ============================Admin Auth Form =====================
+const correctPassword = 'admin123';
+const settingIcon = document.getElementById("setting")
+setting.addEventListener('click', ()=>{
+  document.getElementById("admin-auth-modal").style.display='block'
+})
+
+document.getElementById('admin-auth-submit').addEventListener('click', () => {
+  const inputPassword = document.getElementById('admin-auth-password').value;
+  const adminPanel = document.getElementById('admin-container');
+  const modal = document.getElementById('admin-auth-modal');
+  const errorMessage = document.getElementById('admin-auth-error');
+  const mainContent = document.getElementById('main-content');
+
+  if (inputPassword === correctPassword) {
+    modal.style.display = 'none';
+    mainContent.style.display = 'none';
+    adminPanel.style.display = 'block';
+  } else {
+    errorMessage.style.display = 'block';
+  }
+});
+
+// =====================Add product======================
+const nameInput = document.getElementById("product-name");
+const priceInput = document.getElementById("product-price");
+const descriptionInput = document.getElementById("product-description");
+const submitBtn = document.getElementById("addBtn");
+
+function cleanInputs(){
+  nameInput.value=''
+  priceInput.value=''
+  descriptionInput.value=''
+}
+
+async function addObjectToCollection(obj) {
+  try {
+    await db.collection("bar").add(obj);
+    alert("Document successfully added!");
+    cleanInputs()
+  } catch (error) {
+    alert("Error adding document: ", error);
+  }
+}
+
+submitBtn.addEventListener("click", (e)=>{
+  const menuItem = {
+    title: nameInput.value,
+    price:priceInput.value,
+    description:descriptionInput.value
+  }
+
+  if (Object.values(menuItem).some(item => !item)) {
+    alert("Fill all the fields")
+    return;
+  }
+  addObjectToCollection(menuItem)
+})
