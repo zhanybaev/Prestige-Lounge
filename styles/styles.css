@@ -564,6 +564,9 @@ pre {
     max-width: 100%;
     height: auto;
 } 
+#reserveSpan, #notAvailable{
+    display: none;
+}
 .admin-container {
     display: none;
     position: absolute;

@@ -16,6 +16,29 @@ async function getBarCollection() {
     console.error("Error fetching documents: ", error);
   }
 }
+// ======================== Show tables aviability ==============
+async function fetchTableAvailability() {
+  try {
+    const docRef = db.collection("tables-availability").doc("available");
+    const docSnapshot = await docRef.get();
+    if (docSnapshot.exists) {
+      const data = docSnapshot.data();
+      return data.available;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    alert("Error fetching document: ", error);
+  }
+}
+
+fetchTableAvailability().then(value => {
+  if(value){
+    document.getElementById("reserveSpan").style.display='block'
+  }else{
+    document.getElementById("notAvailable").style.display='block'
+  }
+});
 // ========================Open Booking Modal======================
 const book = document.getElementById("book")
 const modal = document.getElementById("modal")
@@ -107,4 +130,24 @@ submitBtn.addEventListener("click", (e)=>{
     return;
   }
   addObjectToCollection(menuItem)
+})
+
+// ==================== Tables Availability===================
+const availabilityInput = document.getElementById("tables-availability")
+const saveBtn = document.getElementById("save")
+
+async function updateTableAvailability(newValue) {
+  try {
+    const docRef = db.collection("tables-availability").doc("available");
+    await docRef.update({
+      available: newValue
+    });
+    alert("Field successfully updated!");
+  } catch (error) {
+    alert("Error updating document: ", error);
+  }
+}
+
+saveBtn.addEventListener("click", ()=>{
+  updateTableAvailability(availabilityInput.checked)
 })
