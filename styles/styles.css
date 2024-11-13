@@ -567,6 +567,24 @@ pre {
 #reserveSpan, #notAvailable{
     display: none;
 }
+.heading-line{
+    position: relative;
+}
+h1{
+    opacity: 0;
+    position: absolute;
+}
+#closeAdmin{
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    color: black !important;
+}
+#closeAdmin:hover{
+    color: #FFC858 !important;
+}
 .admin-container {
     display: none;
     position: absolute;

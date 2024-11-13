@@ -155,13 +155,10 @@
                 }
             }
         </style>
-        <!-- <link rel="stylesheet" id="redux-google-fonts-salient_redux-css" href="https://fonts.googleapis.com/css?family=Roboto+Condensed%3A700%7CRoboto%3A500%2C700%2C400%2C400italic&#038;subset=latin" type="text/css" media="all" /> -->
         <script src="./js/jquery.js"></script>
         <script type="text/javascript" src="https://kit.fontawesome.com/6f1367cab4.js"></script>
-        <!-- <link rel="icon" href="https://xn--90ahiibg4adhgeq.xn--p1ai/wp-content/uploads/2019/08/cropped-trikster-logo-black-2-32x32.png" sizes="32x32" /> -->
-        <!-- <link rel="icon" href="https://xn--90ahiibg4adhgeq.xn--p1ai/wp-content/uploads/2019/08/cropped-trikster-logo-black-2-192x192.png" sizes="192x192" /> -->
-        <!-- <link rel="apple-touch-icon-precomposed" href="https://xn--90ahiibg4adhgeq.xn--p1ai/wp-content/uploads/2019/08/cropped-trikster-logo-black-2-180x180.png" /> -->
-        <!-- <meta name="msapplication-TileImage" content="https://xn--90ahiibg4adhgeq.xn--p1ai/wp-content/uploads/2019/08/cropped-trikster-logo-black-2-270x270.png" /> -->
+        <link rel="icon" href="./favicon.ico" sizes="32x32" />
+        <link rel="icon" href="./android-chrome-192x192.png" sizes="192x192" />
         <style type="text/css" data-type="vc_shortcodes-custom-css">
             .vc_custom_1570099383210 {
                 margin-top: 30px !important;
@@ -252,7 +249,7 @@
             data-mobile-fixed="false"
             data-ptnm="false"
             data-lhe="animated_underline"
-            data-user-set-bg="#0a0a0a"
+            data-user-set-bg="black"
             data-format="centered-logo-between-menu"
             data-permanent-transparent="false"
             data-megamenu-rt="1"
@@ -279,7 +276,7 @@
                     <div class="row">
                         <div class="col span_3">
                             <a id="logo" href="https://zhanybaev.github.io/pool" data-supplied-ml-starting-dark="false" data-supplied-ml-starting="false" data-supplied-ml="false">
-                                <img class="stnd dark-version" alt="Prestige" src="./ball-image.png" /><img class="starting-logo" alt="Prestige" src="./ball-image.png" />
+                                <img class="stnd dark-version" alt="Prestige" src="./logo.png" /><img class="starting-logo" alt="Prestige" src="./logo.png" />
                             </a>
                         </div>
                         <div class="col span_9 col_last">
@@ -341,13 +338,11 @@
                                         class="row-bg using-image"
                                         data-parallax-speed="fast"
                                         style="
-                                            background-image: url(https://img.freepik.com/premium-photo/balls-billiard-balls-hall-club-play-entertainment-ball-sphere-billiard-recreation-pool-ro_252967-226.jpg);
-                                            background-position: center center;
-                                            background-repeat: no-repeat;
+                                            background: black;
                                         "
                                     ></div>
                                 </div>
-                                <div class="row-bg-overlay" style="background-color: #0a0a0a; opacity: 0.5;"></div>
+                                <div class="row-bg-overlay" style="background-color: black; opacity: 0.5;"></div>
                             </div>
                             <div class="col span_12 light left">
                                 <div
@@ -375,14 +370,10 @@
                                         <div class="wpb_wrapper">
                                           <div class="nectar-split-heading">
                                               <div class="heading-line">
+                                                  <img width="600" src="./header.png" alt="Header Title" class="heading-line">
                                                   <div><h1>Prestige</h1></div>
                                               </div>
                                           </div>
-                                            <div class="nectar-split-heading">
-                                                <div class="heading-line">
-                                                    <div><h3>Lounge</h3></div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1041,7 +1032,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="gallery" data-midnight="dark" data-bg-mobile-hidden="" class="wpb_row vc_row-fluid vc_row full-width-section standard_section" style="padding-top: 100px; padding-bottom: 0px;">
+                        <div id="gallery" data-midnight="dark" data-bg-mobile-hidden="" class="wpb_row vc_row-fluid vc_row full-width-section standard_section" style="padding-top: 60px; padding-bottom: 0px;">
                             <div class="row-bg-wrap" data-bg-animation="none">
                                 <div class="inner-wrap"><div class="row-bg using-bg-color" style="background-color: #0a0000;"></div></div>
                                 <div class="row-bg-overlay"></div>
@@ -1051,7 +1042,7 @@
                                     <polygon points="501 53.27 0.5 0.56 0.5 100 1000.5 100 1000.5 0.66 501 53.27" />
                                 </svg>
                             </div>
-                            <div class="col span_12 dark left">
+                            <div style="padding-bottom: 100px;" class="col span_12 dark left">
                                 <div
                                     class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding"
                                     data-t-w-inherits="default"
@@ -1229,6 +1220,9 @@
                 </label>
                 <button id="save">Save</button>
             </div>
+            <button id="closeAdmin">
+                X
+            </button>
         </div>
         <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>

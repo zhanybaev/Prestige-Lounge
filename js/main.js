@@ -1,5 +1,11 @@
 const firebaseConfig = {
-
+  apiKey: "AIzaSyA4SyJ6270ZDSFy3DIAnF7P0WV-E_YiCjM",
+  authDomain: "prestige-lounge.firebaseapp.com",
+  projectId: "prestige-lounge",
+  storageBucket: "prestige-lounge.appspot.com",
+  messagingSenderId: "948407810686",
+  appId: "1:948407810686:web:32aa95b711e0f9eadd362f",
+  measurementId: "G-7MCFB4VN9Q"
 }
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
@@ -13,7 +19,7 @@ async function getBarCollection() {
       menu.push(doc.data());
     });
   } catch (error) {
-    console.error("Error fetching documents: ", error);
+    alert("Error fetching documents: ", error);
   }
 }
 // ======================== Show tables aviability ==============
@@ -130,6 +136,11 @@ submitBtn.addEventListener("click", (e)=>{
     return;
   }
   addObjectToCollection(menuItem)
+})
+// ======================= Close Admin=====================
+document.getElementById("closeAdmin").addEventListener('click', ()=>{
+  document.getElementById('admin-container').style.display = 'none';
+  document.getElementById('main-content').style.display = 'block';
 })
 
 // ==================== Tables Availability===================
