@@ -2382,7 +2382,7 @@ body #header-outer[data-format=centered-logo-between-menu] .span_3 #logo:not(.no
     transform: none;
 }
 body #header-outer[data-format=centered-logo-between-menu] #top #logo {
-    transform: translateX(-50%);
+    transform: translate(-100%, -30%);
     pointer-events: auto;
 }
 #header-outer[data-format=default] #top .span_9 {
@@ -7430,6 +7430,18 @@ body .vc_pie_chart_back {
 }
 body .vc_pie_chart {
     opacity: 1;
+}
+.heading-line {
+    opacity: 0;
+    animation: fadeIn 1.1s ease-in-out forwards;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 .nectar-split-heading .heading-line {
     display: block;

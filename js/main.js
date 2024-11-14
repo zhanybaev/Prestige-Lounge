@@ -145,7 +145,7 @@ async function updateTableAvailability(newValue) {
     await docRef.update({
       available: newValue
     });
-    alert("Field successfully updated!");
+    alert("Tables availability successfully updated!");
   } catch (error) {
     alert("Error updating document: ", error);
   }
