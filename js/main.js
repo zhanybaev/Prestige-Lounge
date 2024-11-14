@@ -1,12 +1,4 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyA4SyJ6270ZDSFy3DIAnF7P0WV-E_YiCjM",
-  authDomain: "prestige-lounge.firebaseapp.com",
-  projectId: "prestige-lounge",
-  storageBucket: "prestige-lounge.appspot.com",
-  messagingSenderId: "948407810686",
-  appId: "1:948407810686:web:32aa95b711e0f9eadd362f",
-  measurementId: "G-7MCFB4VN9Q"
-}
+const firebaseConfig = {}
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 // ===========================Firebase Init=====================
