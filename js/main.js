@@ -1,4 +1,12 @@
-const firebaseConfig = {}
+const firebaseConfig = {
+  apiKey: "AIzaSyA4SyJ6270ZDSFy3DIAnF7P0WV-E_YiCjM",
+  authDomain: "prestige-lounge.firebaseapp.com",
+  projectId: "prestige-lounge",
+  storageBucket: "prestige-lounge.appspot.com",
+  messagingSenderId: "948407810686",
+  appId: "1:948407810686:web:32aa95b711e0f9eadd362f",
+  measurementId: "G-7MCFB4VN9Q"
+}
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 // ===========================Firebase Init=====================
@@ -51,6 +59,23 @@ closeBtn.addEventListener('click', function () {
   modal.style.display = 'none';
   document.body.style.overflow = 'auto';
 });
+
+document.getElementById("sendReserve").addEventListener('click', (event)=>{
+  event.preventDefault();
+    const name = document.getElementById('senderName').value;
+    const date = document.getElementById('reserveDate').value;
+    const time = document.getElementById('reserveTime').value;
+    const phone = document.getElementById('senderPhone').value;
+
+    const senderEmail = "youremail@example.com";
+
+    const subject = "Booking Information";
+    const body = `Name: ${name}\nDate: ${date}\nTime: ${time}\nPhone: ${phone}\n\nSender Email: ${senderEmail}`;
+
+    const mailtoLink = `mailto:recipient@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+})
 
 // ======================Open Bar Menu===============================
 const barBtn = document.getElementById("barBtn")

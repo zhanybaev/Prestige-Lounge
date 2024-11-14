@@ -298,7 +298,7 @@
                                 </ul>
                                 <ul class="buttons sf-menu" data-user-set-ocm="off"></ul>
                             </nav>
-                            <div class="logo-spacing" data-using-image="true"><img class="hidden-logo" alt="Prestige" src="./ball-image.png" /></div>
+                            <div class="logo-spacing" data-using-image="true"><img class="hidden-logo" alt="Prestige" src="./logo.png" /></div>
                         </div>
                     </div>
                 </div>
@@ -477,19 +477,19 @@
                                                         <span class="close">&times;</span>
                                                         <h2>Reserve a table</h2>
                                                         <form id="bookingForm">
-                                                          <label for="name">Name</label>
-                                                          <input type="text" id="name" name="name" required>
+                                                          <label for="senderName">Name</label>
+                                                          <input type="text" id="senderName" name="senderName" required>
                                                   
-                                                          <label for="date">Date</label>
-                                                          <input type="date" id="date" name="date" required>
+                                                          <label for="reserveDate">Date</label>
+                                                          <input type="date" id="reserveDate" name="reserveDate" required>
 
-                                                          <label for="time">Time</label>
-                                                          <input type="time" id="time" name="time" required>
+                                                          <label for="reserveTime">Time</label>
+                                                          <input type="time" id="reserveTime" name="reserveTime" required>
                                                   
-                                                          <label for="phone">Phone Number</label>
-                                                          <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}">
+                                                          <label for="senderPhone">Phone Number</label>
+                                                          <input type="tel" id="senderPhone" name="senderPhone" required>
                                                   
-                                                          <button type="submit">Send Email</button>
+                                                          <button id="sendReserve" type="click">Send Email</button>
                                                         </form>
                                                       </div>
                                                     </div>

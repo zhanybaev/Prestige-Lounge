@@ -828,7 +828,7 @@ h1{
     outline: none;
 }
   
-#modal button[type="submit"] {
+#modal button[type="submit"], #sendReserve {
     width: 100%;
     padding: 12px;
     background-color: #FFC85B;
@@ -837,9 +837,10 @@ h1{
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
+    font-weight: 600;
 }
   
-#modal button[type="submit"]:hover {
+#modal button[type="submit"]:hover, #sendReserve:hover {
     background-color: black !important;
     color: #FFC85B !important;
 }
