@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -834,7 +834,7 @@
 																<div
 																	class="column-image-bg"
 																	style="
-																		background-image: url('./header-img.png');
+																		background-image: url(&quot;./header-img.png&quot;);
 																	"
 																></div>
 															</div>
@@ -1736,7 +1736,9 @@
 																		<div
 																			id="barMenu"
 																			class="wpb_wrapper"
-																			onclick="openBar()"
+																			onclick="
+																				openBar()
+																			"
 																		>
 																			<div
 																				id="menuList"
@@ -1868,7 +1870,8 @@
 																	style="
 																		color: #ffffff;
 																		text-align: center;
-																		font-family: 'Raleway',
+																		font-family:
+																			&quot;Raleway&quot;,
 																			sans-serif;
 																		font-weight: 500;
 																		font-style: normal;
@@ -2023,6 +2026,7 @@
 				<label for="admin-auth-password">Enter Password:</label>
 				<input type="password" id="admin-auth-password" />
 				<button id="admin-auth-submit">Submit</button>
+				<button id="admin-auth-close">Close</button>
 				<p
 					id="admin-auth-error"
 					style="color: tomato !important; display: none"
@@ -2080,6 +2084,7 @@
 				</label>
 				<button id="save">Save</button>
 			</div>
+			<div id="adminMenu"></div>
 			<button id="closeAdmin">X</button>
 		</div>
 		<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>

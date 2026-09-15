@@ -1,4 +1,13 @@
-const firebaseConfig = {};
+const firebaseConfig = {
+	apiKey: "AIzaSyA4SyJ6270ZDSFy3DIAnF7P0WV-E_YiCjM",
+	authDomain: "prestige-lounge.firebaseapp.com",
+	projectId: "prestige-lounge",
+	storageBucket: "prestige-lounge.firebasestorage.app",
+	messagingSenderId: "948407810686",
+	appId: "1:948407810686:web:32aa95b711e0f9eadd362f",
+	measurementId: "G-7MCFB4VN9Q",
+};
+
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 // ===========================Firebase Init=====================
@@ -65,7 +74,7 @@ document.getElementById("sendReserve").addEventListener("click", (event) => {
 	const body = `Name: ${name}\nDate: ${date}\nTime: ${time}\nPhone: ${phone}\n\nSender Email: ${senderEmail}`;
 
 	const mailtoLink = `mailto:recipient@example.com?subject=${encodeURIComponent(
-		subject
+		subject,
 	)}&body=${encodeURIComponent(body)}`;
 
 	window.location.href = mailtoLink;
@@ -93,10 +102,52 @@ barBtn.addEventListener("click", async () => {
 // ============================Admin Auth Form =====================
 const correctPassword = "admin123";
 const settingIcon = document.getElementById("setting");
-setting.addEventListener("click", () => {
+const closeFormBtn = document.getElementById("admin-auth-close");
+const adminMenuList = document.getElementById("adminMenu");
+
+// ============================ Open/Close Admin Auth Form =====================
+settingIcon.addEventListener("click", () => {
 	document.getElementById("admin-auth-modal").style.display = "block";
 });
 
+closeFormBtn.addEventListener("click", () => {
+	document.getElementById("admin-auth-modal").style.display = "none";
+});
+
+// =========================== Show Admin Menu =====================
+const deleteItemFromCollection = async (title) => {
+	try {
+		const querySnapshot = await db
+			.collection("bar")
+			.where("title", "==", title)
+			.get();
+		querySnapshot.forEach(async (doc) => {
+			await doc.ref.delete();
+		});
+		alert(`Document with title "${title}" successfully deleted!`);
+	} catch (error) {
+		alert("Error deleting document: ", error);
+	}
+};
+
+const showAdminMenu = async () => {
+	adminMenuList.innerHTML = "";
+
+	if (!menu.length) {
+		await getBarCollection();
+	}
+	menu.forEach((item) => {
+		console.log(item);
+		const menuItem = `
+    		<div class="adminMenu-item bar-item" key="${item.title}">
+      			<p class="item-title">${item.title} | $${item.price}</p>
+      			<button class="deleteBtn" onclick="deleteItemFromCollection('${item.title}')">Delete</button>
+    		</div>
+		`;
+		adminMenuList.innerHTML += menuItem;
+	});
+};
+// ============================Admin Auth Form Validation =====================
 document.getElementById("admin-auth-submit").addEventListener("click", () => {
 	const inputPassword = document.getElementById("admin-auth-password").value;
 	const adminPanel = document.getElementById("admin-container");
@@ -108,6 +159,8 @@ document.getElementById("admin-auth-submit").addEventListener("click", () => {
 		modal.style.display = "none";
 		mainContent.style.display = "none";
 		adminPanel.style.display = "block";
+		document.getElementById("admin-auth-password").value = "";
+		showAdminMenu();
 	} else {
 		errorMessage.style.display = "block";
 	}
