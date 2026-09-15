@@ -1,15 +1,9 @@
-const firebaseConfig = {
-	apiKey: "AIzaSyA4SyJ6270ZDSFy3DIAnF7P0WV-E_YiCjM",
-	authDomain: "prestige-lounge.firebaseapp.com",
-	projectId: "prestige-lounge",
-	storageBucket: "prestige-lounge.firebasestorage.app",
-	messagingSenderId: "948407810686",
-	appId: "1:948407810686:web:32aa95b711e0f9eadd362f",
-	measurementId: "G-7MCFB4VN9Q",
-};
+const firebaseConfig = {};
 
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const auth = firebase.auth();
+const email = "admin@gmail.com";
 // ===========================Firebase Init=====================
 const menu = [];
 
@@ -137,7 +131,6 @@ const showAdminMenu = async () => {
 		await getBarCollection();
 	}
 	menu.forEach((item) => {
-		console.log(item);
 		const menuItem = `
     		<div class="adminMenu-item bar-item" key="${item.title}">
       			<p class="item-title">${item.title} | $${item.price}</p>
@@ -148,23 +141,40 @@ const showAdminMenu = async () => {
 	});
 };
 // ============================Admin Auth Form Validation =====================
-document.getElementById("admin-auth-submit").addEventListener("click", () => {
-	const inputPassword = document.getElementById("admin-auth-password").value;
-	const adminPanel = document.getElementById("admin-container");
-	const modal = document.getElementById("admin-auth-modal");
-	const errorMessage = document.getElementById("admin-auth-error");
-	const mainContent = document.getElementById("main-content");
+document
+	.getElementById("admin-auth-submit")
+	.addEventListener("click", async () => {
+		const password = document.getElementById("admin-auth-password").value;
 
-	if (inputPassword === correctPassword) {
-		modal.style.display = "none";
-		mainContent.style.display = "none";
-		adminPanel.style.display = "block";
-		document.getElementById("admin-auth-password").value = "";
-		showAdminMenu();
-	} else {
-		errorMessage.style.display = "block";
-	}
-});
+		const adminPanel = document.getElementById("admin-container");
+		const modal = document.getElementById("admin-auth-modal");
+		const errorMessage = document.getElementById("admin-auth-error");
+		const mainContent = document.getElementById("main-content");
+
+		try {
+			const userCredential = await auth.signInWithEmailAndPassword(
+				email,
+				password,
+			);
+
+			const user = userCredential.user;
+
+			// Login successful
+			modal.style.display = "none";
+			mainContent.style.display = "none";
+			adminPanel.style.display = "block";
+
+			document.getElementById("admin-auth-password").value = "";
+			errorMessage.style.display = "none";
+
+			showAdminMenu();
+		} catch (error) {
+			alert(error);
+
+			errorMessage.textContent = "Invalid email or password.";
+			errorMessage.style.display = "block";
+		}
+	});
 
 // =====================Add product======================
 const nameInput = document.getElementById("product-name");
